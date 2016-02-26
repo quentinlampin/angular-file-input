@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>angular-file-input example</title>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../dist/angular-file-input.min.js"></script>
+</head>
+<body>
+<script>
+    angular.module('example',['angular-file-input'])
+            .controller('Controller', function () {
+                this.boundFile = undefined;
+                this.reset = function () {
+                    this.boundFile = undefined;
+                }
+            });
+</script>
+<div ng-app="example">
+    <div ng-controller="Controller as ctrl">
+        <input type="file" ng-file="ctrl.boundFile">
+        <div>
+            boundFile: {{ctrl.boundFile.name}}
+        </div>
+        <button class="button" ng-click="ctrl.reset()">
+            reset
+        </button>
+    </div>
+</div>
+</body>
+</html>
